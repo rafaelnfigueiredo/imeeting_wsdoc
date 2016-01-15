@@ -1,0 +1,146 @@
+FORMAT: 1A
+HOST: http://imeeting.deway.com.br/
+
+# iMeeting Produção
+##Objetivo
+Especificar a API do sistema iMeeting afim de documentar todas os métodos e facilitra a manutenção e expansão.
+
+## Admin [/login-admin/]
+
+### Login Administradores [GET/login-admin/?login={login}&senha={senha}]
+
++ Parameters
+    + login (String)
+Login do usuário administrador. Ex: Rafael
+    + senha (String)
+Senha do usuário administrador. Ex: 1111
+    
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "success": True,
+                "message": "Administrador Cadastrado",
+                "idAdmin": 12
+            }
+            
++ Response 500 (application/json)
+
+            {
+                "status": 500,
+                "success": False,
+                "message": "Administrador Nao cadastrado ou Senha Inválida",
+            }
+            
+### Todos Administradores [GET/get-all-admins/]
+
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "success": True,
+                "message": [
+                    {
+                        "login":"Rafael",
+                        "idAdmin": 12,
+                        "Senha":"1234"
+                    },
+                    {
+                        "Login": "admin",
+                        "idAdmin": 6,
+                        "Senha": "1234"
+                     },
+                ]
+            }
+            
+### Criar Administrador [POST/criar-admin/]
+
+
++ Request (application/json)
+
+        {
+            "login":"Rafael",
+            "senha":"1234"
+        }
+
+
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "message": "Administrador cadastrado com sucesso",
+                 "success": true
+            }
+
++ Response 500 (application/json)
+
+        {
+            "status": 500,
+            "message": "Administrador já cadastrado",
+            "success": false
+        }
+        
+        
+## Participantes [/login-participantes/]
+
+### Login Participante [GET/login-participantes/?email={email}]
+
++ Parameters
+    + email (String)
+Email do usuário participante. Ex: teste@teste.com
+
+    
++ Response 200 (application/json)
+
+         {
+            "status": 200,
+            "message": [
+                {
+                "Setor": "Deway",
+                "Foto": "http://imeeting.deway.com.br/static/media/uploads/20160105105210.jpg",
+                "Email": "teste@teste.com",
+                "Nome": "Tester"
+                }
+            ],
+            "success": true
+        }
+            
++ Response 500 (application/json)
+
+            {
+                "status": 500,
+                "message": [],
+                "success": false
+            }
+
+### Criar Participante [POST/criar-participante/]
+
+
++ Request (application/json)
+
+        {
+            "email":"teste@teste.com",
+            "nome":"Teste",
+            "setor":"Deway",
+            "nao_tem_foto":""
+        }
+
+
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "message": "Administrador cadastrado com sucesso",
+                 "success": true
+            }
+
++ Response 500 (application/json)
+
+        {
+            "status": 500,
+            "message": "Administrador já cadastrado",
+            "success": false
+        }
+            
+
+
