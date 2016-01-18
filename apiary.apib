@@ -131,7 +131,7 @@ Email do usuário participante. Ex: teste@teste.com
             {
                 "status": 200,
                 "message": "Administrador cadastrado com sucesso",
-                 "success": true
+                "success": true
             }
 
 + Response 500 (application/json)
@@ -142,5 +142,25 @@ Email do usuário participante. Ex: teste@teste.com
             "success": false
         }
             
+## Sessões [/sessoes/]
 
+### Todas as Sessões [GET/get-todas-sessoes/]
 
+    
++ Response 200 (application/json)
+
+         {
+            "status": 200,
+            "message": [
+                {
+                  "dataFim": "2015-10-23T02:00:00Z",
+                  "quantidadeEsperada": 13,
+                  "idSessao": 102,
+                  "senha": "regulacao",
+                  "isAtiva": "1",
+                  "titulo": "ICT na Area - Regulação - Outubro"
+                },
+            ],
+            "success": true
+        }
+ 
