@@ -163,4 +163,31 @@ Email do usuário participante. Ex: teste@teste.com
             ],
             "success": true
         }
+        
+### Sessões Ativas [GET/get-sessao-ativa/]
+
+    
++ Response 200 (application/json)
+
+         {
+              "status": 200,
+              "message": [
+                {
+                  "dataFim": "2016-01-18",
+                  "quantidadeEsperada": 20,
+                  "idSessao": 135,
+                  "senha": "1111",
+                  "isAtiva": "1",
+                  "titulo": "Teste01"
+                }
+              ],
+              "success": true
+        }
  
++ Response 500 (appliction/json)
+
+        {
+            "status": 500,
+            "message":[],
+            "success":false
+        }
