@@ -191,3 +191,40 @@ Email do usuário participante. Ex: teste@teste.com
             "message":[],
             "success":false
         }
+        
+### Criar Sessão [POST/criar-sessao/]
+
+
++ Request (application/json)
+
+        {
+            "titulo":"Teste Apiary",
+            "senha":"0000",
+            "data_fim":"2016-01-17",
+            "participantes_esperados":10
+        }
+
+
++ Response 200 (application/json)
+
+        {
+            "status": 200,
+            "message": "Sessão criada com sucesso",
+            "success": true
+        }
+
++ Response 500 (application/json)
+
+        {
+          "status": 500,
+          "message": "A data da votaçao tem que ser maior ou igual a data de hoje",
+          "success": false
+        }
+        
++ Response 500 (application/json)
+
+        {
+          "status": 500,
+          "message": "Sessao já existente",
+          "success": false
+        }
